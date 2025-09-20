@@ -138,12 +138,12 @@ get() {
 				((line < 0)) && line=0
 				break
 				;;
-			$'\cf')
+			f|$'\cf')
 				((line += height))
 				[ $line -gt ${#args[@]} ] && line=$((${#args[@]} - 1))
 				break
 				;;
-			$'\cb')
+			b|$'\cb')
 				((line -= height))
 				((line < 0)) && line=0
 				break
