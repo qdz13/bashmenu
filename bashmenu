@@ -14,16 +14,17 @@ usage() {
 }
 
 cleanup() {
-	printf "\033[?1049l"
 	tput cnorm
+	tput rmcup
 	exit
 }
 
 init() {
-	trap 'cleanup' HUP INT QUIT PIPE TERM EXIT
-	printf "\033[?1049h" # Alternate screen
+	trap 'cleanup' HUP INT QUIT PIPE TERM
+	tput smcup # Alternate screen
 	tput civis # Hide cursor
 	line=0
+	quit=false
 	finish=false
 }
 
@@ -89,7 +90,11 @@ get() {
 	while true; do
 		read -r -s -n 1 c
 		case "$c" in
-			q|Q) exit ;;
+			q|Q)
+				quit=true
+				finish=true
+				break
+				;;
 			j)
 				[ $((line + 1)) -lt ${#args[@]} ] && ((line++))
 				break
@@ -181,6 +186,15 @@ main() {
 		fi
 	done
 
+	if [ ${#args[@]} -eq 0 ]; then
+		usage
+		exit 1
+	fi
+
+	local out
+	out=$(tty)
+	exec 3>&1
+	exec > "$out"
 	init
 	trap 'draw' SIGWINCH
 	while true; do
@@ -188,9 +202,10 @@ main() {
 		get
 		[ "$finish" = true ] && break
 	done
-	printf "\033[?1049l"
 	tput cnorm
-	echo "${args[$line]}"
+	tput rmcup
+	exec >&3-
+	[ "$quit" = false ] && echo "${args[$line]}"
 }
 
 main "$@"
