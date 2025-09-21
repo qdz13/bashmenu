@@ -39,7 +39,7 @@ draw() {
 
 	local i n m s
 	n=0
-	m=${#args[@]}
+	m=$((${#args[@]} - 1))
 
 	if [ "$border" = true ]; then
 		((width -= 2))
