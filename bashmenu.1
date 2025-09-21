@@ -1,0 +1,47 @@
+.Dd September 21, 2025
+.Dt BASHMENU 1
+.Os
+.Sh NAME
+.Nm bashmenu
+.Nd TUI menu written in Bash
+.Sh SYNOPSIS
+.Nm bashmenu
+.Op Fl bh
+.Op Ar ARGS
+.Sh DESCRIPTION
+.Nm
+is minimal TUI tool for choosing one from a given arguments.
+Selected option is output to the standard output.
+.Pp
+Supported options:
+.Bl -tag -width Ds
+.It Fl b , Fl Fl border
+Add a border
+.It Fl h , Fl Fl help
+Display help message
+.El
+.Sh KEY BINDINGS
+Keymaps is similar to
+.Xr vi 1 .
+In the following descriptions, ^F means control-F.
+.Bl -tag -width Ds
+.It Ic f or ^F
+Scroll forward one window.
+.It Ic b or ^B
+Scroll backward one window.
+.It Ic d or ^D
+Scroll forward one half-window.
+.It Ic u or ^U
+Scroll backward one half-window.
+.It Ic j
+Scroll forward one line.
+.It Ic k
+Scroll backward one line.
+.It Ic g
+Go to first line in file.
+.It Ic G
+Go to last line in file.
+.It Ic q or Q
+Exits
+.Nm bashmenu .
+.El
