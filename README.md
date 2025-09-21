@@ -19,7 +19,7 @@ sudo make install
 bashmenu "one" "two" "three"
 ```
 
-Run `man bashmenu` to see the explanation of options and keybinds.
+Run `man bashmenu` to see the explanation of options and key binds.
 
 > [!TIP]
 > There are several example scripts in the directory named "examples".
