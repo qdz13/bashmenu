@@ -2,6 +2,7 @@
 # shellcheck disable=SC2086
 
 progname="bashmenu"
+version=1.0.0
 
 usage() {
 	echo "Usage: $progname [OPTIONS] [ARGS]" >&2
@@ -10,6 +11,7 @@ usage() {
 	Options:
 	  -b, --border  Add a border
 	  -h, --help    Display this help message and exit
+	  -v, --version Display version information and exit
 	EOF
 }
 
@@ -168,6 +170,10 @@ main() {
 					;;
 				-h|--help)
 					usage
+					exit
+					;;
+				-v|--version)
+					echo "$progname $version"
 					exit
 					;;
 				-b|--border)
