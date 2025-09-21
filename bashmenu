@@ -2,7 +2,7 @@
 # shellcheck disable=SC2086
 
 progname="bashmenu"
-version=1.0.0
+version=1.0.1
 
 usage() {
 	echo "Usage: $progname [OPTIONS] [ARGS]" >&2
@@ -97,11 +97,11 @@ get() {
 				finish=true
 				break
 				;;
-			j)
+			j|$'\cj')
 				[ $((line + 1)) -lt ${#args[@]} ] && ((line++))
 				break
 				;;
-			k)
+			k|$'\ck')
 				((line != 0)) && ((line--))
 				break
 				;;
@@ -118,11 +118,11 @@ get() {
 						;;
 				esac
 				;;
-			g)
+			g|'<')
 				line=0
 				break
 				;;
-			G)
+			G|'>')
 				line=$((${#args[@]} - 1))
 				break
 				;;
