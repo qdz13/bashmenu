@@ -1,6 +1,8 @@
 # Bashmenu
 [English](README.md) | 日本語
 
+<img src="preview.png" width="500">
+
 Bashmenuは与えられた引数から項目を選択するためのミニマルなTUIツールです。
 
 Bashで書かれており、追加の依存関係を必要としません！
