@@ -5,7 +5,7 @@ progname="bashmenu"
 version=1.0.1
 
 usage() {
-	echo "Usage: $progname [OPTIONS] [ARGS]" >&2
+	echo "Usage: $progname [-bhv] [arguments ...]" >&2
 	cat >&2 <<-'EOF'
 
 	Options:
