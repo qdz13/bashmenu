@@ -1,7 +1,7 @@
 # Bashmenu
 English | [日本語](README-ja.md)
 
-<img src="preview.png" width="500">
+<img src="preview.png" width="400">
 
 Bashmenu is a minimal TUI tool for choosing one from a given arguments.
 

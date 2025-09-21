@@ -1,7 +1,7 @@
 # Bashmenu
 [English](README.md) | 日本語
 
-<img src="preview.png" width="500">
+<img src="preview.png" width="400">
 
 Bashmenuは与えられた引数から項目を選択するためのミニマルなTUIツールです。
 
