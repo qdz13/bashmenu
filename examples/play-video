@@ -1,9 +1,0 @@
-#!/bin/bash
-# Synopsis: Recursively search and play MP4 video
-# Usage: play-video
-
-[ "$(find . -type f -name '*.mp4' -print | wc -l | awk '{print $1}')" = 0 ] && exit
-shopt -s extglob nullglob
-answer=$(bashmenu ./**/*.mp4)
-[ -z "$answer" ] && exit
-exec ffplay "$answer"

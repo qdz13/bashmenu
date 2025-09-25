@@ -21,5 +21,22 @@ bashmenu "one" "two" "three"
 
 Run `man bashmenu` to see the explanation of options and key binds.
 
-> [!TIP]
-> There are several example scripts in the directory named "examples".
+## Example
+
+Example Bash script to choose an editor:
+
+```bash
+#!/bin/bash
+# Usage: select-editor [file ...]
+
+editors=(
+	"vi"
+	"nvi"
+	"vim"
+	"nvim"
+)
+
+[ $# -eq 0 ] && exit 1
+answer=$(bashmenu "${editors[@]}")
+[ -n "$answer" ] && exec "$answer" "$@" || exit 0
+```

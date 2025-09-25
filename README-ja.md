@@ -21,5 +21,22 @@ bashmenu "one" "two" "three"
 
 オプションやキーバインドの説明を見るには`man bashmenu`を実行してください。
 
-> [!TIP]
-> ディレクトリ「examples」内にいくつかスクリプトの例があります。
+## 例
+
+エディタを選択するBashスクリプトの例:
+
+```bash
+#!/bin/bash
+# Usage: select-editor [file ...]
+
+editors=(
+	"vi"
+	"nvi"
+	"vim"
+	"nvim"
+)
+
+[ $# -eq 0 ] && exit 1
+answer=$(bashmenu "${editors[@]}")
+[ -n "$answer" ] && exec "$answer" "$@" || exit 0
+```
